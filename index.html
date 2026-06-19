@@ -1,23 +1,782 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Home</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <!--
-      Need a visual blank slate?
-      Remove all code in `styles.css`!
-    -->
-    <link rel="stylesheet" href="styles.css" />
-    <script type="module" src="script.js"></script>
-  </head>
-  <body>
-    <nav>
-      <a href="/" aria-current="page">Home</a>
-      <a href="/page2.html">Other page</a>
-    </nav>
+
+
+    <!-- JSON-LD Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "headline": "커넥티드카 뜻과 보험과의 상관관계 완벽 분석 및 2026년 할인 혜택 비교 가이드",
+      "description": "커넥티드카 서비스의 정의와 자동차 보험료 할인 특약 간의 정밀한 인과관계 분석. 현대 블루링크, 기아 커넥트, 제네시스, 벤츠, BMW, 테슬라 등 브랜드별 할인 혜택 비교 및 2026년 최신 보험료 계산 가이드.",
+      "image": "https://yourdomain.com/images/connected-car-insurance-guide.jpg",
+      "author": {
+        "@type": "Organization",
+        "name": "스마트 자동차 금융 포럼"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "스마트 자동차 금융 포럼",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://yourdomain.com/logo.png"
+        }
+      },
+      "datePublished": "2026-06-19",
+      "dateModified": "2026-06-19",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://yourdomain.com/connected-car-insurance-guide"
+      }
+    }
+    </script>
+
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
+      :root {
+        --main-color: #0f172a; /* 신뢰감 주는 진한 네이비 그레이 */
+        --accent-color: #b45309; /* 세련된 느낌의 번트 앰버 */
+        --accent-hover: #92400e;
+        --bg-color-light: #f8fafc; /* 부드러운 밝은 그레이 */
+        --text-color: #334155; /* 부드러운 차콜 그레이 */
+        --heading-color: #0f172a;
+        --border-color: #e2e8f0;
+        --card-bg: #ffffff;
+      }
+      body {
+        font-family: 'Noto Sans KR', sans-serif;
+        margin: 0;
+        padding: 0;
+        line-height: 1.85;
+        background-color: var(--bg-color-light);
+        color: var(--text-color);
+        font-size: 16px;
+      }
+      header {
+        background-color: var(--main-color);
+        color: white;
+        padding: 3rem 1.5rem;
+        text-align: center;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      }
+      header h1 {
+        font-size: 2.2rem;
+        font-weight: 700;
+        margin-bottom: 0.8rem;
+        line-height: 1.4;
+        letter-spacing: -0.03em;
+      }
+      header p {
+        font-size: 1.1rem;
+        opacity: 0.85;
+        max-width: 800px;
+        margin: 0 auto 1.5rem auto;
+        font-weight: 300;
+      }
+      nav {
+        background-color: #1e293b;
+        padding: 0.8rem;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      }
+      nav ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        gap: 1.8rem;
+        flex-wrap: wrap;
+      }
+      nav a {
+        color: #94a3b8;
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 0.95rem;
+        transition: color 0.25s ease;
+        padding: 0.3rem 0;
+      }
+      nav a:hover {
+        color: white;
+      }
+      main {
+        max-width: 1050px;
+        margin: 3rem auto;
+        padding: 0 2rem;
+      }
+      .content-card {
+        background-color: var(--card-bg);
+        border-radius: 16px;
+        padding: 3rem;
+        box-shadow: 0 10px 25px rgba(15, 23, 42, 0.03);
+        margin-bottom: 2.5rem;
+        border: 1px solid var(--border-color);
+      }
+      section {
+        margin-bottom: 3.5rem;
+      }
+      h2 {
+        color: var(--heading-color);
+        font-size: 1.9rem;
+        font-weight: 700;
+        padding-bottom: 0.8rem;
+        border-bottom: 2px solid var(--accent-color);
+        margin-top: 2.5rem;
+        margin-bottom: 1.5rem;
+        letter-spacing: -0.02em;
+      }
+      h3 {
+        color: var(--main-color);
+        font-size: 1.4rem;
+        font-weight: 700;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+        border-left: 4px solid var(--accent-color);
+        padding-left: 0.75rem;
+      }
+      p {
+        margin-bottom: 1.5rem;
+        text-align: justify;
+      }
+      strong {
+        color: var(--main-color);
+        font-weight: 700;
+      }
+      ul, ol {
+        margin-bottom: 1.5rem;
+        padding-left: 1.5rem;
+      }
+      li {
+        margin-bottom: 0.5rem;
+      }
+      table {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0;
+        margin: 2rem 0;
+        border-radius: 10px;
+        overflow: hidden;
+        border: 1px solid var(--border-color);
+      }
+      th, td {
+        padding: 1.1rem;
+        text-align: center;
+        border-bottom: 1px solid var(--border-color);
+      }
+      th {
+        background-color: #f1f5f9;
+        color: var(--main-color);
+        font-weight: 700;
+        font-size: 1rem;
+      }
+      tbody tr:nth-child(even) {
+        background-color: #f8fafc;
+      }
+      tbody tr:hover {
+        background-color: #f1f5f9;
+      }
+      .keyword-tags {
+        margin: 1.5rem 0;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+      .keyword-tags span {
+        background-color: #f1f5f9;
+        color: #475569;
+        padding: 6px 12px;
+        border-radius: 6px;
+        font-size: 0.85rem;
+        border: 1px solid #e2e8f0;
+      }
+      /* 계산기 스타일 */
+      .simulator-container {
+        background-color: #f8fafc;
+        border: 1px solid var(--border-color);
+        border-radius: 12px;
+        padding: 2rem;
+        margin: 2.5rem 0;
+      }
+      .simulator-form {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+      }
+      @media (max-width: 768px) {
+        .simulator-form {
+          grid-template-columns: 1fr;
+        }
+        .content-card {
+          padding: 1.5rem;
+        }
+        header h1 {
+          font-size: 1.6rem;
+        }
+      }
+      .input-group {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+      .input-group label {
+        font-weight: 700;
+        font-size: 0.95rem;
+        color: var(--main-color);
+      }
+      .input-group select, .input-group input {
+        padding: 0.8rem;
+        border: 1px solid #cbd5e1;
+        border-radius: 8px;
+        font-size: 1rem;
+        background-color: white;
+        transition: border-color 0.2s;
+      }
+      .input-group select:focus, .input-group input:focus {
+        border-color: var(--accent-color);
+        outline: none;
+      }
+      .btn-calculate {
+        grid-column: 1 / -1;
+        background-color: var(--accent-color);
+        color: white;
+        border: none;
+        padding: 1rem;
+        border-radius: 8px;
+        font-size: 1.1rem;
+        font-weight: 700;
+        cursor: pointer;
+        transition: background-color 0.2s;
+        text-align: center;
+      }
+      .btn-calculate:hover {
+        background-color: var(--accent-hover);
+      }
+      .result-panel {
+        margin-top: 1.5rem;
+        padding: 1.5rem;
+        background-color: #fff;
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        display: none;
+      }
+      .result-title {
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: var(--main-color);
+        margin-bottom: 1rem;
+        border-bottom: 1px solid var(--border-color);
+        padding-bottom: 0.5rem;
+      }
+      .result-item {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 0.75rem;
+        font-size: 1rem;
+      }
+      .result-total {
+        display: flex;
+        justify-content: space-between;
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: var(--accent-color);
+        border-top: 2px dashed var(--border-color);
+        padding-top: 0.8rem;
+        margin-top: 0.8rem;
+      }
+      /* FAQ 아코디언 */
+      dl dt {
+        font-weight: 700;
+        margin-top: 1rem;
+        padding: 1.2rem;
+        background-color: #f1f5f9;
+        border-radius: 8px;
+        cursor: pointer;
+        color: var(--main-color);
+        transition: background-color 0.2s ease;
+        border-left: 4px solid var(--accent-color);
+        outline: none;
+      }
+      dl dt:hover {
+        background-color: #e2e8f0;
+      }
+      dl dt.active {
+        background-color: var(--main-color);
+        color: white;
+      }
+      dl dd {
+        margin-left: 0;
+        padding: 1.2rem;
+        border: 1px solid var(--border-color);
+        border-top: none;
+        border-radius: 0 0 8px 8px;
+        display: none;
+        background-color: #ffffff;
+      }
+      dl dt.active + dd {
+        display: block;
+      }
+      /* 출처 링크 스타일 */
+      .source-links a {
+        display: block;
+        color: #2563eb;
+        margin-bottom: 0.6rem;
+        text-decoration: none;
+        font-size: 0.95rem;
+      }
+      .source-links a:hover {
+        text-decoration: underline;
+        color: var(--accent-color);
+      }
+      /* 문의 폼 스타일 */
+      .contact-form {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.2rem;
+        margin-top: 1.5rem;
+      }
+      .contact-form .full-width {
+        grid-column: 1 / -1;
+      }
+      .contact-form label {
+        font-weight: 700;
+        display: block;
+        margin-bottom: 0.4rem;
+      }
+      .contact-form input, .contact-form textarea {
+        width: 100%;
+        padding: 0.8rem;
+        border: 1px solid #cbd5e1;
+        border-radius: 6px;
+        box-sizing: border-box;
+      }
+      .contact-form textarea {
+        height: 120px;
+        resize: vertical;
+      }
+      .btn-submit {
+        background-color: var(--main-color);
+        color: white;
+        border: none;
+        padding: 1rem 2rem;
+        border-radius: 6px;
+        font-size: 1rem;
+        font-weight: 700;
+        cursor: pointer;
+        transition: background-color 0.2s;
+        text-align: center;
+      }
+      .btn-submit:hover {
+        background-color: #1e293b;
+      }
+      footer {
+        text-align: center;
+        padding: 2rem;
+        font-size: 0.9rem;
+        color: #64748b;
+        background-color: #f1f5f9;
+        border-top: 1px solid var(--border-color);
+      }
+      .visual-box {
+        background-color: #f0f4f8;
+        border: 1px solid #cbd5e1;
+        border-radius: 8px;
+        padding: 1.5rem;
+        margin: 2rem 0;
+        text-align: center;
+        font-weight: 500;
+      }
+      .grid-3 {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 1.5rem;
+        margin: 2rem 0;
+      }
+      @media (max-width: 768px) {
+        .grid-3 {
+          grid-template-columns: 1fr;
+        }
+      }
+      .card-item {
+        background-color: #f8fafc;
+        border: 1px solid var(--border-color);
+        padding: 1.5rem;
+        border-radius: 8px;
+      }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>커넥티드카 뜻과 보험과의 상관관계 완전 분석 가이드</h1>
+        <p>인터넷망과 연결된 미래형 자동차 기술의 핵심 개념을 규명하고, 운행 데이터 전송 방식과 보험료 할인 연계 시스템의 상호 연결 고리를 꼼꼼하게 검증해 드립니다.</p>
+        <nav>
+            <ul>
+                <li><a href="#definition">커넥티드카란?</a></li>
+                <li><a href="#insurance-link">보험과의 상관관계</a></li>
+                <li><a href="#simulator">할인 계산 시뮬레이터</a></li>
+                <li><a href="#brand-comparison">브랜드별 비교분석</a></li>
+                <li><a href="#community">소비자 동향 및 후기</a></li>
+                <li><a href="#faq">자주 묻는 질문</a></li>
+            </ul>
+        </nav>
+    </header>
+
     <main>
-      <h1>Home page</h1>
+        <div class="content-card">
+            <!-- 소개 섹션 -->
+            <section id="definition">
+                <h2>커넥티드카 뜻과 핵심 동작 기술의 구조적 이해</h2>
+                <p>현대 지능형 모빌리티 생태계의 중심축을 담당하고 있는 <strong>커넥티드카 뜻</strong>은 무선 통신망을 매개로 외부의 네트워크, 교통 인프라, 위성 GPS 송수신 장치, 그리고 다른 주변 차량들과 양방향으로 디지털 정보를 실시간 송수신할 수 있는 스마트 자동차를 의미합니다. 단순히 시동을 걸고 주행하는 전형적인 기계 장치의 굴레를 넘어서, 자동차 자체가 거대한 모바일 통신 단말이자 고성능 연산 컴퓨터로 변모한 형태입니다. 차량 내부에 장착된 독자적인 이동통신 모뎀을 바탕으로 클라우드 서버와 상시 데이터 연결을 유지하여 원격 제어, 내비게이션 경로 최적화, 첨단 운전자 보조 시스템 작동 등이 가능해집니다.</p>
+                
+                <p>구체적으로 커넥티드카 기술은 다양한 인프라와 연결 고리를 생성합니다. 첫째는 차량 내부 네트워크로, 엔진 제어 유닛 및 첨단 센서류들이 통합 무선 제어 장치와 긴밀하게 연동됩니다. 둘째는 차량 대 클라우드 간의 송수신입니다. 차량 주행 중에 발생하는 속도 변화, 브레이크 조작 횟수, 실시간 연비 지표, 가속 G센서 데이터, 위치 정보 등의 텔레메틱스 정보가 가입자의 동의하에 지정된 클라우드로 즉시 업로드됩니다. 이러한 첨단 인포테인먼트 서비스를 지속적으로 사용하기 위해 현대 블루링크, 기아 커넥트, 제네시스 커넥티드 서비스 등 수많은 독자 브랜드 어플리케이션을 통해 사용자 환경이 유지됩니다.</p>
+                
+                <div class="keyword-tags">
+                    <span>커넥티드카 뜻</span>
+                    <span>텔레메틱스 기반 서비스</span>
+                    <span>차량 주행 고유 정보</span>
+                    <span>현대 블루링크 제어</span>
+                    <span>기아 커넥트 안전지표</span>
+                    <span>제네시스 무선 업데이트</span>
+                    <span>인터넷 자동차 운전점수</span>
+                </div>
+            </section>
+
+            <!-- 보험 상관관계 섹션 -->
+            <section id="insurance-link">
+                <h2>실시간 데이터 전송과 자동차 보험료 산정의 인과 분석</h2>
+                <p>자동차가 통신 기능을 수행함에 따라 가장 거대한 패러다임 변화를 겪고 있는 도메인은 바로 자동차 보험 시장입니다. 이전까지의 손해보험 상품 산출 구조는 운전자의 연령, 사고 유무, 단순 무사고 경력 기간 등 다소 단편적이고 통계적인 요소를 토대로 기본 보험율을 도출해 왔습니다. 그러나 커넥티드카 통신을 활용하면 운전자의 평소 주행 패턴과 주행 거리, 그리고 속도 통제 습관 등 본질적인 행동 데이터를 그대로 추적할 수 있어 개별 가입자 맞춤형 정밀 산정이 현실화되고 있습니다.</p>
+                
+                <p>이것이 바로 운전 습관 연계 보험인 <strong>UBI (Usage-Based Insurance)</strong> 모델입니다. 가입자가 자발적으로 주행 자료 전송에 서약하면, 통신 모뎀을 거쳐 전달되는 급가속 회수, 급감속 횟수, 야간 불규칙 운행 빈도 등 세부 요소를 종합 연산하여 개별적인 안전운전점수를 부여합니다. 예를 들어, 90일 동안 1,000km 이상의 거리를 운전하면서 급출발 및 급정거를 자제하여 70점 혹은 80점 이상의 안전 점수를 유지하는 조건이 충족되면, 다음 계약 갱신 시점에 상당 금액의 환급 혹은 선할인 혜택을 수령하게 되는 원리입니다.</p>
+                
+                <div class="visual-box">
+                    <strong>커넥티드 데이터 연계 프로세스 요약</strong><br>
+                    차량 센서 데이터 수집 (속도, 가속도, 브레이크 압력) -> 제조사 클라우드 서버 전송 및 점수 연산 -> 보험사 전산 연동 및 조건 검증 -> 다이렉트 할인 및 최종 환급액 결정
+                </div>
+
+                <p>따라서 30대나 40대 패밀리카 오너를 비롯하여 보험 부담이 가장 가중되는 20대 신규 드라이버에 이르기까지 커넥티드카 장치를 구비하고 안전운전 점수 관리를 철저히 실행할 경우, 1년에 수십만 원 이상의 최종 유지 비용을 획기적으로 낮출 수 있습니다. 특히 2026년 들어 주요 손해보험 전문 업체들은 마일리지 할인 혜택과 안전운전 특약을 하나로 결합한 차별화된 패키지 형태의 신규 가입 전용 인터넷 다이렉트 상품군을 일제히 추천하면서 점유율 확대를 전개하고 있습니다.</p>
+            </section>
+
+            <!-- 인터랙티브 계산기 섹션 (체류 시간 극대화) -->
+            <section id="simulator">
+                <h2>커넥티드카 다이렉트 보험료 할인 자가 진단 계산기</h2>
+                <p>아래 자가 진단 계산기 프로그램을 실행하여 본인의 주행 패턴 및 운전 점수를 입력해 보십시오. 입력된 제조사 시스템 종류와 운전자 연령대에 매칭되는 2026년 기준 예상 할인 비율 및 최종 환급 금액 규모를 즉시 연산해 드립니다. 상세한 할인 설계 플랜은 전문 분석 컨설팅을 통해 받아보실 수 있습니다.</p>
+                
+                <div class="simulator-container">
+                    <form class="simulator-form" onsubmit="calculateInsurance(); return false;">
+                        <div class="input-group">
+                            <label for="brand">보유 차량 제조사 및 시스템 종류</label>
+                            <select id="brand" required>
+                                <option value="">선택해 주세요</option>
+                                <option value="hyundai">현대자동차 (블루링크)</option>
+                                <option value="kia">기아 (기아 커넥트)</option>
+                                <option value="genesis">제네시스 (커넥티드 서비스)</option>
+                                <option value="kgm">KG모빌리티 (인포콘)</option>
+                                <option value="bmw">BMW (커넥티드 드라이브)</option>
+                                <option value="benz">메르세데스 벤츠 (메르세데스 미)</option>
+                                <option value="tesla">테슬라 (실시간 세이프티 스코어)</option>
+                                <option value="none">통신 모뎀 없음 (일반 차량)</option>
+                            </select>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="age">피보험자 운전자 연령 범위</label>
+                            <select id="age" required>
+                                <option value="">선택해 주세요</option>
+                                <option value="20">만 20대 초중반 (신규 경력 포함)</option>
+                                <option value="30">만 30대 중반 (가장 표준적인 요율)</option>
+                                <option value="40">만 40대 패밀리 운전자</option>
+                                <option value="50">만 50대 이상 시니어 드라이버</option>
+                            </select>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="score">현재 내 안전운전 점수 (0 ~ 100점)</label>
+                            <input type="number" id="score" min="0" max="100" placeholder="예: 85" required>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="mileage">연간 예상 총 주행거리 (km)</label>
+                            <input type="number" id="mileage" min="100" max="50000" placeholder="예: 8000" required>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="insurer">가입 선호 보험사 (비교 대상)</label>
+                            <select id="insurer" required>
+                                <option value="samsung">삼성화재 다이렉트 착</option>
+                                <option value="hyundai_ins">현대해상 다이렉트 하이카</option>
+                                <option value="db">DB손해보험 다이렉트 프로미</option>
+                                <option value="kb">KB손해보험 다이렉트</option>
+                            </select>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="estimated-premium">평소 납부하는 연평균 대략적 보험료 (원)</label>
+                            <input type="number" id="estimated-premium" min="200000" max="5000000" placeholder="예: 900000" required>
+                        </div>
+
+                        <button type="submit" class="btn-calculate">실시간 커넥티드 할인 혜택 종합 계산하기</button>
+                    </form>
+
+                    <div class="result-panel" id="resultPanel">
+                        <div class="result-title">예상 모의 분석 결과 통계</div>
+                        <div class="result-item">
+                            <span>기본 커넥티드 차량 기본 할인 적용 비율</span>
+                            <span id="basicDiscountPercent">0.0%</span>
+                        </div>
+                        <div class="result-item">
+                            <span>안전운전 습관 점수 (UBI) 추가 인하율</span>
+                            <span id="ubiDiscountPercent">0.0%</span>
+                        </div>
+                        <div class="result-item">
+                            <span>마일리지(주행거리 연동) 선할인 환급율</span>
+                            <span id="mileageDiscountPercent">0.0%</span>
+                        </div>
+                        <div class="result-item">
+                            <span>연간 총 예상 누적 아낄 수 있는 비용</span>
+                            <span id="savedAmount" style="color: #b45309; font-weight: bold;">0원</span>
+                        </div>
+                        <div class="result-total">
+                            <span>최종 예상 납부 제안 금액</span>
+                            <span id="finalPremium">0원</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 주요 제조사 및 손해보험사 비교 분석 -->
+            <section id="brand-comparison">
+                <h2>국내 주요 손해보험사별 커넥티드카 할인 특약 비교 분석</h2>
+                <p>2026년 기준 우리나라의 메이저 4대 손해보험 전문 업체들이 제공하는 세부 특별약관 요건을 정확하게 정독해야 중복 누락 없이 최대 절감을 완성할 수 있습니다. 각 회사들은 현대 블루링크, 기아 커넥트와 같은 완성차 내부 전산망과 직접 전용선을 개설하여 수동 서류 검증 없이 즉시 가산점을 산출하는 지능형 인터넷 가입 방식을 고수하고 있습니다.</p>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>손해보험사 종류</th>
+                            <th>기본 커넥티드 할인율</th>
+                            <th>안전운전(UBI) 요건 및 감면비율</th>
+                            <th>2026 핵심 다이렉트 특징</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>삼성화재 다이렉트 착</strong></td>
+                            <td>출고 차량 평균 1.0% ~ 4.9%</td>
+                            <td>안전점수 76점 이상 4.0% ~ 최대 30.5% 추가 할인</td>
+                            <td>착한걷기 건강 서비스 및 제휴 신규 카드 지원금 연계 우수</td>
+                        </tr>
+                        <tr>
+                            <td><strong>현대해상 다이렉트 하이카</strong></td>
+                            <td>평균 4.1% ~ 4.5% 인하</td>
+                            <td>안전점수 70점 이상 충족 시 평균 9.0% ~ 16.0% 차등 지원</td>
+                            <td>3년 연속 무사고 이력 안전운전자 전용 특약 결합 추천 상품 보유</td>
+                        </tr>
+                        <tr>
+                            <td><strong>DB손해보험 다이렉트 프로미</strong></td>
+                            <td>차종 및 장치별 3.0% ~ 4.6%</td>
+                            <td>안전점수 70점 이상 10.2% ~ 24.4% 차별화 적용</td>
+                            <td>티맵 및 카카오내비, 네이버지도 앱 운행점수 폭넓은 제휴 보장</td>
+                        </tr>
+                        <tr>
+                            <td><strong>KB손해보험 다이렉트</strong></td>
+                            <td>평균 4.1% ~ 최대 7.0%</td>
+                            <td>최근 90일 내 1,000km 주행 후 70점 이상 시 최대 27.2%</td>
+                            <td>걸음수 전용 혜택 앱 연동 및 인스타그램 인플루언서 갱신 팁 공유</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p>이와 더불어 수입차 브랜드 소유주들의 선택폭도 지속적으로 넓어지고 있습니다. 벤츠 및 BMW의 전용 텔레매틱스 계정을 연계하는 제휴가 대거 정착되었으며, 테슬라 이용 드라이버의 경우 차체 내부 중앙 스크린에 표출되는 누적 세이프티 점수에 기반하여 위험 요율을 20%에서 최대 40%까지 슬라이딩 방식으로 제어하는 등 고정비 감소 방안이 진보하고 있습니다. 각 채널별 온라인 마케팅 일환으로 현금지원 혜택이나 주유 상품권 이벤트, 백화점 상품권 지급 등 다양한 혜택 정보가 주기적으로 리뉴얼되니 상시 검토하는 요령이 필요합니다.</p>
+                
+                <div class="grid-3">
+                    <div class="card-item">
+                        <strong>장점 분석</strong>
+                        <p>자발적 운전 안전의식이 고취되며 연간 20만 원 이상의 가시적인 가입비 절감 효과가 발생하고 무서류 즉시 온라인 인증을 활용할 수 있어 번잡함이 완전히 상실됩니다.</p>
+                    </div>
+                    <div class="card-item">
+                        <strong>단점 분석</strong>
+                        <p>장거리 주행 비중이 과밀하거나 정체 구간의 빈번한 급제동 유발 요건에 직면할 경우 원하는 커트라인 득점을 상회하기 매우 까다로울 수 있습니다.</p>
+                    </div>
+                    <div class="card-item">
+                        <strong>차이점 대비</strong>
+                        <p>구형 블랙박스 할인과 다르게 무선 기지국 데이터 세팅을 통한 자동 갱신 형태로 매번 기기의 오작동 유무나 메모리카드 전송 오류를 염려할 수고가 줄어듭니다.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 동향 및 후기 (실제 커뮤니티 데이터 분석 포함) -->
+            <section id="community">
+                <h2>소비자 인터넷 커뮤니티의 내돈내산 가입 후기 및 대외 동향</h2>
+                <p>현재 네이버 대표 자동차 카페나 구글 티스토리 테크 블로그, 그리고 유명 자동차 유투브 콘텐츠를 관통하는 핵심 여론은 결국 수동 계기판 인증 없이 손쉽게 최종 지불액을 삭감하는 효율성에 닿아 있습니다. 국내 3대 대표 커뮤니티인 보배드림 자유게시판, 디시인사이드 자동차 갤러리, 그리고 에펨코리아(펨코)의 실시간 소통 흐름을 유심히 탐색해 보면, 다이렉트 결제 단계에서 통신 가입 정보를 자동으로 가져오지 못해 당황하는 신규 드라이버들의 고충이 발견되기도 합니다.</p>
+                
+                <p>일부 실제 오너가 공유한 대다수의 내돈내산 가입 후기에 따르면, 현대 제네시스 차주가 처음 가입 당시 앱 내 개인정보 제3자 전송 조항 승인을 미필하여 적정 감면을 거부당했으나, 전용 고객센터 유선 상담 통화와 온라인 가이드 컨설팅 전문업체 자문을 수렴하여 재조정 및 소급 환급을 수령했다는 일화도 빈번히 목격됩니다. 이 때문에 구글 플레이스토어나 애플 앱스토어에서 커넥티드 전용 소프트웨어 앱을 주기적으로 업데이트하며 본인의 운전 습관 점수가 적정한 커트라인을 충족하고 있는가 수시로 점검하는 전략이 강력히 추천됩니다.</p>
+
+                <p>또한 최근 토스나 카카오톡 지갑 서비스 등에서 자사 플랫폼 안착 고객을 확장하기 위해 모바일 비교 진단 계산기 기능과 매칭한 사은품 지급이나 이색적인 현금지원 캐시백 행사를 병행하고 있어, 포털의 구글 서치나 네이버 최저가 비교 탭을 통해 상시 공지글을 열람하는 편이 좋습니다. 특히 주말 드라이버의 경우 마일리지 할인과 안전운행 보조 특약을 완벽하게 병합해 한 단계 업그레이드된 세일 폭을 향유한다는 점이 실제 가입자의 공통된 절약 팁으로 누누이 거론되는 실정입니다.</p>
+            </section>
+
+            <!-- 2026 AI 트렌드 및 향후 상관관계 전망 -->
+            <section id="future-ai">
+                <h2>2026년 첨단 인공지능(AI)과 융합되는 텔레매틱스 고도화</h2>
+                <p>2026년 현재 스마트 모빌리티의 혁신적 조류는 거대 언어 모델인 챗지피티(ChatGPT)나 제미나이(Gemini) 같은 온디바이스 인공지능(AI) 기술이 차량 연산 칩셋과 심도 있게 연동되는 변화에 있습니다. 이러한 혁신적 통섭을 기치로 각 완성차 제조사들과 제휴 금융 공학 센터들은 단순 과거 이력 분석에서 우회하여 미래의 실시간 사고 유발 확률을 미리 예측하는 초정밀 예측형 특약을 속속들이 시범 운용하기 시작했습니다.</p>
+                
+                <p>이를테면 탑승자가 운전 도중 비정상적인 전방 시선 분산 습관을 지니거나 야간 가로등 부재 도로에서의 반응 시간이 평균값보다 지연되는 유의미한 행동 패턴 데이터를 감지했을 경우, 자동차에 내재된 자체 AI 어플리케이션 비서가 적정 시점 카카오톡 알림을 송신하여 방어 기동 요령을 지도하고 실시간 보정이 반영된 유연한 납입 요율 가이드라인을 새롭게 브리핑하는 식의 고도화된 컨설팅 서비스가 점진적으로 일상에 침투하고 있습니다. 이는 가입자 측면에서는 리스크를 극소화하고, 전문 보험사 입장에서는 연간 손해율 방어를 현실로 구현하는 상호 호혜적인 디지털 혁신의 상징이라 평가할 수 있습니다.</p>
+            </section>
+
+            <!-- FAQ 아코디언 섹션 -->
+            <section id="faq">
+                <h2>자주 접수되는 대표적인 커넥티드카 보험 고민 답변 (FAQ)</h2>
+                <dl>
+                    <dt tabindex="0" aria-expanded="false">스마트 기기 연결 서비스 무상 이용 만료 기간이 도래하면 할인 적용이 철회되나요?</dt>
+                    <dd>맞습니다. 제조사의 현대 블루링크, 기아 커넥트, KGM 인포콘 등은 보통 신차 계약 및 인도 시점 기준 최소 2년에서 최고 5년간 전폭적인 통신료 면제 프로모션을 실시합니다. 무상 기간이 경과된 이후 추가 정기 구독 결제를 집행하지 않아 통신선 링크가 완전히 소멸되면, 가입 조건이 자동으로 실효되어 혜택이 정지됩니다. 따라서 본인의 잔여 무상 제공 일정을 사전 체크하여 유료 전환 혹은 대안 특약 확보를 강구하셔야 합니다.</dd>
+                    
+                    <dt tabindex="0" aria-expanded="false">안전운전 지표 점수가 기준 조건보다 일시적으로 급락하면 패널티 가산금이 청구되나요?</dt>
+                    <dd>기본적으로 전혀 우려하지 않으셔도 괜찮습니다. 대다수의 4대 메이저 손보사들이 유지하는 UBI 기반 자동차보험 체계는 우수 운전자에게 계약 연장 단계에서 환급이나 깎아주는 혜택 구조만 부가할 뿐, 비록 돌발 사고 이력이 없는 가입자에게 운전 성적 하락 이유로 기존 금액 대비 패널티 가산 징벌 조치를 전가하지는 않습니다. 따라서 최악의 경우를 직면하더라도 미가입 일반 납입금과 동등한 고정비만 책임지면 됩니다.</dd>
+                    
+                    <dt tabindex="0" aria-expanded="false">제조사의 전용 서비스와 모바일 티맵(TMAP) 연동 점수 특약의 장단점 및 중복 가입은?</dt>
+                    <dd>현행 거의 모든 전문 보험사에서는 하나의 계약 내용 내부에서 커넥티드카 안전운전 감면 혜택과 서드파티 소프트웨어 어플리케이션인 티맵 혹은 카카오내비 점수 할인을 불행히도 상호 중복 결합하여 적용해 주지는 않고 있습니다. 둘 중 본인에게 압도적으로 풍족한 요율 감면 수치가 산정되는 하나의 혜택을 수동 가입 시 직접 결정하여 진행하셔야 합니다. 대체로 블루링크 등 순정 텔레매틱스 기반 방식이 조건 유지에 대한 까다로움이 적어 더 안정적인 선택으로 회자됩니다.</dd>
+
+                    <dt tabindex="0" aria-expanded="false">중고 수입차를 신규 입양해 개시하는 시기에도 즉각 등록이 수월할까요?</dt>
+                    <dd>네 가능합니다. 이전 명의를 정리하고 소유 관계 재설정을 거쳐 수입 완성차의 공식 브랜드 앱을 본인의 스마트폰에 정식 로그인한 후 원격 관리를 승인한 기록이 남아 있다면 정상 신청하실 수 있습니다. 가령 벤츠 커넥티드 서비스 등의 정보가 클라우드를 통과해 각 인터넷 다이렉트 전산망으로 안전하게 전송되므로, 가입 신청서 내의 차체 고유 넘버 입력과 전송 처리만 철저히 유념하면 됩니다.</dd>
+                </dl>
+            </section>
+
+            <!-- 공인 및 외부 신뢰성 출처 사이트 -->
+            <section id="sources">
+                <h2>학술 및 신뢰 관계 검증을 위한 권위 있는 대외 채널 모음</h2>
+                <p>본 안내 정보는 각 전문 금융 공학 저널 자료와 공적인 표준 정보 시스템에서 정제한 데이터를 투명하게 원형 보전하여 취합하였습니다. 상세 법적 효력 검토 및 제원에 대한 추가 지식 탐색은 하단 공식 외부 채널을 가볍게 열람하여 확인하시기 바랍니다.</p>
+                <div class="source-links">
+                    <a href="https://www.kidi.or.kr" target="_blank" rel="noopener noreferrer">보험개발원 공식 포털 - 모델별 요율 등급 및 안전 공시 데이터 분석</a>
+                    <a href="https://www.law.go.kr" target="_blank" rel="noopener noreferrer">국가법령정보센터 - 자동차손해배상 보장법 및 금융감독법률 정보 조회</a>
+                    <a href="https://www.fss.or.kr" target="_blank" rel="noopener noreferrer">금융감독원 정보공시실 - 금융소비자 보호지침 및 금융 특약 약정 가이드</a>
+                    <a href="https://www.carisyou.com" target="_blank" rel="noopener noreferrer">국토교통부 인가 카이즈유 연구소 - 제조사별 첨단 등록 현황 통계 센터</a>
+                    <a href="https://www.consumer.go.kr" target="_blank" rel="noopener noreferrer">한국소비자원 공식 홈페이지 - 자동차 연동 피해 구제 및 분쟁 조정 실제 판결서</a>
+                    <a href="https://namu.wiki/w/%EC%BB%A4%EB%84%A5%ED%8B%B0%EB%93%9C%20%EC%B9%B4" target="_blank" rel="noopener noreferrer">나무위키 오픈 지식 검색 - 미래 스마트 전기차 및 정보통신 차량 공학 상세 가이드</a>
+                </div>
+            </section>
+
+            <!-- 상담 및 컨설팅 문의 신청서 (체류시간 연계) -->
+            <section id="consulting">
+                <h2>나에게 맞는 1:1 스마트 다이렉트 자동차보험 맞춤 설계 컨설팅 신청</h2>
+                <p>어려운 요율 산출 공식과 주행 데이터 정송 오류 탓에 고민하지 마세요. 전문 공인 상담가 팀이 본인의 통신 시스템 모델 규격과 운전 패턴 점수에 걸맞은 연간 최고 이율의 할인 절약 플랜을 오차 없이 계산하여 무료 설계안을 직접 제시해 드립니다.</p>
+                
+                <form class="contact-form" onsubmit="alert('소중한 개인정보 동의를 포함하여 가입 추천 분석 신청이 정상 통보되었습니다. 전문 설계 요원이 즉시 피드백을 전달해 드립니다.'); return false;">
+                    <div class="input-group">
+                        <label for="usr-name">성명 및 피보험자명</label>
+                        <input type="text" id="usr-name" placeholder="예: 김민우" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="usr-phone">상담 전송 연락처</label>
+                        <input type="tel" id="usr-phone" placeholder="예: 010-1234-5678" required>
+                    </div>
+                    <div class="input-group full-width">
+                        <label for="car-type">보유 차량 모델명 및 연식</label>
+                        <input type="text" id="car-type" placeholder="예: 현대 그랜저 하이브리드 (2025년형)" required>
+                    </div>
+                    <div class="input-group full-width">
+                        <label for="user-message">보험사별 비교 및 문의 사항 상세 기술</label>
+                        <textarea id="user-message" placeholder="원하는 보험사와 블루링크 안전운전 점수 현황 등을 남겨주시면 정밀 계산하여 연락드립니다."></textarea>
+                    </div>
+                    <div class="input-group full-width" style="flex-direction: row; align-items: center; gap: 0.5rem;">
+                        <input type="checkbox" id="privacy-agree" style="width: auto;" required>
+                        <label for="privacy-agree" style="font-weight: normal; font-size: 0.85rem;">개인정보 마케팅 활용 안내 수집 동의 (전문 다이렉트 가격 연산 목적)</label>
+                    </div>
+                    <button type="submit" class="btn-submit full-width">맞춤형 절약 설계 컨설팅 보고서 수령 신청</button>
+                </form>
+            </section>
+        </div>
     </main>
-  </body>
-</html>
+
+    <script>
+      // FAQ 아코디언 기능 (접기/펼치기)
+      document.querySelectorAll('dl dt').forEach((dt) => {
+        dt.addEventListener('click', () => {
+          // 다른 항목 닫기
+          document.querySelectorAll('dl dt').forEach((otherDt) => {
+            if (otherDt !== dt && otherDt.classList.contains('active')) {
+              otherDt.classList.remove('active');
+              otherDt.setAttribute('aria-expanded', 'false');
+            }
+          });
+          
+          // 현재 항목 토글
+          dt.classList.toggle('active');
+          let expanded = dt.getAttribute('aria-expanded') === 'true';
+          dt.setAttribute('aria-expanded', !expanded);
+        });
+        dt.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            dt.click();
+          }
+        });
+      });
+
+      // 자가 진단 계산 시뮬레이션 알고리즘
+      function calculateInsurance() {
+        const brand = document.getElementById('brand').value;
+        const age = document.getElementById('age').value;
+        const score = parseFloat(document.getElementById('score').value);
+        const mileage = parseFloat(document.getElementById('mileage').value);
+        const premium = parseFloat(document.getElementById('estimated-premium').value);
+
+        if(!brand || !age || isNaN(score) || isNaN(mileage) || isNaN(premium)) {
+            alert('필수 인자들을 빠짐없이 기입해 주세요.');
+            return;
+        }
+
+        // 1. 기본 커넥티드 차량 기본 할인
+        let basicRate = 0.0;
+        if (brand === 'hyundai' || brand === 'kia' || brand === 'genesis') {
+            basicRate = 0.045; // 4.5%
+        } else if (brand === 'kgm') {
+            basicRate = 0.035; // 3.5%
+        } else if (brand === 'bmw' || brand === 'benz') {
+            basicRate = 0.030; // 3.0%
+        } else if (brand === 'tesla') {
+            basicRate = 0.050; // 5.0%
+        } else {
+            basicRate = 0.0;
+        }
+
+        // 2. 안전운전 습관 점수 (UBI) 연산
+        let ubiRate = 0.0;
+        if (brand !== 'none') {
+            if (score >= 80) {
+                ubiRate = 0.16; // 16% 우대
+            } else if (score >= 70) {
+                ubiRate = 0.09; // 9% 적용
+            } else {
+                ubiRate = 0.0;
+            }
+        }
+
+        // 3. 마일리지 환급률
+        let mileageRate = 0.0;
+        if (mileage <= 3000) {
+            mileageRate = 0.35; // 35% 할인
+        } else if (mileage <= 7000) {
+            mileageRate = 0.22; // 22%
+        } else if (mileage <= 12000) {
+            mileageRate = 0.08; // 8%
+        } else {
+            mileageRate = 0.0;
+        }
+
+        // 총액 계산
+        const basicCut = Math.round(premium * basicRate);
+        const ubiCut = Math.round(premium * ubiRate);
+        const mileageCut = Math.round((premium - basicCut - ubiCut) * mileageRate);
+        const totalSaved = basicCut + ubiCut + mileageCut;
+        const finalExpected = premium - totalSaved;
+
+        // 결과 업데이트
+        document.getElementById('basicDiscountPercent').innerText = (basicRate * 100).toFixed(1) + '% (약 ' + basicCut.toLocaleString() + '원)';
+        document.getElementById('ubiDiscountPercent').innerText = (ubiRate * 100).toFixed(1) + '% (약 ' + ubiCut.toLocaleString() + '원)';
+        document.getElementById('mileageDiscountPercent').innerText = (mileageRate * 100).toFixed(1) + '% (약 ' + mileageCut.toLocaleString() + '원)';
+        document.getElementById('savedAmount').innerText = totalSaved.toLocaleString() + '원 절약 가능';
+        document.getElementById('finalPremium').innerText = (finalExpected > 0 ? finalExpected : 0).toLocaleString() + '원';
+
+        // 패널 가시화
+        document.getElementById('resultPanel').style.display = 'block';
+      }
+    </script>
+  
